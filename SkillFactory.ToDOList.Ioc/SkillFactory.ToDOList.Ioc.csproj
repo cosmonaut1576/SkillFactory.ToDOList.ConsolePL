@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkillFactory.ToDOList.BLL.Interface\SkillFactory.ToDOList.BLL.Interface.csproj" />
+    <ProjectReference Include="..\SkillFactory.ToDOList.BLL\SkillFactory.ToDOList.BLL.csproj" />
+    <ProjectReference Include="..\SkillFactory.ToDOList.DAL.Interface\SkillFactory.ToDOList.DAL.Interface.csproj" />
+    <ProjectReference Include="..\SkillFactory.ToDOList.DAL\SkillFactory.ToDOList.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

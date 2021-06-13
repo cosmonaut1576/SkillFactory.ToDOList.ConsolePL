@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.ConsolePL", "SkillFactory.ToDOList.ConsolePL\SkillFactory.ToDOList.ConsolePL.csproj", "{90D7EFED-CDD7-4162-82ED-E267F60E6FBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.BLL", "SkillFactory.ToDOList.BLL\SkillFactory.ToDOList.BLL.csproj", "{B7B98AC5-A07E-41D9-8E05-536D99BD0C24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.BLL.Interface", "SkillFactory.ToDOList.BLL.Interface\SkillFactory.ToDOList.BLL.Interface.csproj", "{7DFF5596-50EA-4B8A-9464-2E1DCA178CCF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.DAL", "SkillFactory.ToDOList.DAL\SkillFactory.ToDOList.DAL.csproj", "{C2BE48C5-286A-4769-B792-DC175FA16316}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.DAL.Interface", "SkillFactory.ToDOList.DAL.Interface\SkillFactory.ToDOList.DAL.Interface.csproj", "{1AF61C3E-D4BF-48B0-B495-321BCA9D4A4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{CE823C6B-2B15-4980-8E7E-D9C55E671420}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{B8FD49F2-E9A1-4EF9-A7B9-38DB1AF3DB3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{6D04946E-2F6D-4A9D-9544-C72E4588AED2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.Entities", "SkillFactory.ToDOList.Entities\SkillFactory.ToDOList.Entities.csproj", "{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{74C7060F-BEF7-4DB6-BB40-47DB1753BC23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactory.ToDOList.TextFilesDAL", "TextFilesDao\SkillFactory.ToDOList.TextFilesDAL.csproj", "{08F89594-1E8F-4496-B858-0399A492728C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactory.ToDOList.Ioc", "SkillFactory.ToDOList.Ioc\SkillFactory.ToDOList.Ioc.csproj", "{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90D7EFED-CDD7-4162-82ED-E267F60E6FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D7EFED-CDD7-4162-82ED-E267F60E6FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D7EFED-CDD7-4162-82ED-E267F60E6FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D7EFED-CDD7-4162-82ED-E267F60E6FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B98AC5-A07E-41D9-8E05-536D99BD0C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B98AC5-A07E-41D9-8E05-536D99BD0C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B98AC5-A07E-41D9-8E05-536D99BD0C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B98AC5-A07E-41D9-8E05-536D99BD0C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFF5596-50EA-4B8A-9464-2E1DCA178CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFF5596-50EA-4B8A-9464-2E1DCA178CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFF5596-50EA-4B8A-9464-2E1DCA178CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFF5596-50EA-4B8A-9464-2E1DCA178CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2BE48C5-286A-4769-B792-DC175FA16316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BE48C5-286A-4769-B792-DC175FA16316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BE48C5-286A-4769-B792-DC175FA16316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BE48C5-286A-4769-B792-DC175FA16316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF61C3E-D4BF-48B0-B495-321BCA9D4A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF61C3E-D4BF-48B0-B495-321BCA9D4A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF61C3E-D4BF-48B0-B495-321BCA9D4A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF61C3E-D4BF-48B0-B495-321BCA9D4A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F89594-1E8F-4496-B858-0399A492728C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F89594-1E8F-4496-B858-0399A492728C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F89594-1E8F-4496-B858-0399A492728C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F89594-1E8F-4496-B858-0399A492728C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90D7EFED-CDD7-4162-82ED-E267F60E6FBA} = {6D04946E-2F6D-4A9D-9544-C72E4588AED2}
+		{B7B98AC5-A07E-41D9-8E05-536D99BD0C24} = {CE823C6B-2B15-4980-8E7E-D9C55E671420}
+		{7DFF5596-50EA-4B8A-9464-2E1DCA178CCF} = {CE823C6B-2B15-4980-8E7E-D9C55E671420}
+		{C2BE48C5-286A-4769-B792-DC175FA16316} = {B8FD49F2-E9A1-4EF9-A7B9-38DB1AF3DB3B}
+		{1AF61C3E-D4BF-48B0-B495-321BCA9D4A4E} = {B8FD49F2-E9A1-4EF9-A7B9-38DB1AF3DB3B}
+		{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC} = {74C7060F-BEF7-4DB6-BB40-47DB1753BC23}
+		{08F89594-1E8F-4496-B858-0399A492728C} = {B8FD49F2-E9A1-4EF9-A7B9-38DB1AF3DB3B}
+		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B} = {74C7060F-BEF7-4DB6-BB40-47DB1753BC23}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5E5E669-970A-42FF-8D92-4B8AA787E020}
+	EndGlobalSection
+EndGlobal
