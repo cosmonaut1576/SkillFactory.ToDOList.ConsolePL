@@ -35,7 +35,7 @@ namespace SkillFactory.ToDOList.DAL
             return lastId;
         }
 
-        public IEnumerable<Task> GetAll()
+        public List<Task> GetAll()
         {
             return MemoryDao.tasks.Values.ToList();
         }

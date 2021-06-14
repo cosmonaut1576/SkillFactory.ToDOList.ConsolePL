@@ -35,7 +35,8 @@ namespace SkillFactory.ToDOList.BLL
 
         public IEnumerable<Task> GetAll()
         {
-            return _taskDao.GetAll();
+            var result = MemoryDao.tasks.FirstOrDefault(o => o.Value.Name == name).Key;
+            return MemoryDao.tasks[result];
         }
 
         public Task GetByName(string name)
