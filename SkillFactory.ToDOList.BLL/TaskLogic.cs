@@ -3,6 +3,8 @@ using SkillFactory.ToDOList.DAL.Interface;
 using SkillFactory.ToDOList.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using SkillFactory.ToDOList.DAL;
 
 namespace SkillFactory.ToDOList.BLL
 {
@@ -15,23 +17,42 @@ namespace SkillFactory.ToDOList.BLL
         {
             _taskDao = taskDao;
         }
-        public int Add(Task task)
+        public void Add(Task task)
         {
             if(task.Name.Length <= 0)
             {
                 throw new ArgumentException("Name is empty.");
             }
-            return _taskDao.Add(task);
+            MemoryDao.tasks.Add(_taskDao.GetLastId(), task);
         }
 
-        public IEnumerable<Task> GetAll()
+        public void Remove(Task task)
         {
-            return _taskDao.GetAll();
+            MemoryDao.tasks.Remove(task.Id, out task);
+        }
+
+        public List<Task> GetAll()
+        {
+            var list = new List<Task>();
+            foreach (var task in MemoryDao.tasks)
+            {
+                list.Add(task.Value);
+            }
+
+            return list;
+
+        }
+
+        public Task GetByName(string name)
+        {
+            var result = MemoryDao.tasks.FirstOrDefault(o => o.Value.Name == name).Key;
+            return MemoryDao.tasks[result];
         }
 
         public Task GetByID(int id)
         {
-            return _taskDao.GetByID(id);
+            var result = MemoryDao.tasks.FirstOrDefault(o => o.Value.Id == id).Key;
+            return MemoryDao.tasks[result];
         }
     }
 }
