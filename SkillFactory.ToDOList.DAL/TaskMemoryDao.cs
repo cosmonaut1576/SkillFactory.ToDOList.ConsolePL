@@ -9,15 +9,14 @@ namespace SkillFactory.ToDOList.DAL
     public class TaskMemoryDao : ITaskDao
     {
 
-        public int Add(Task task)
+        public void Add(Task task)
         {
             int id = GetLastId() + 1;
             task.Id = id;
             MemoryDao.tasks.Add(id, task);
-            return id;
         }
 
-        private int GetLastId()
+        public int GetLastId()
         {
             int lastId;
             if (MemoryDao.tasks.Count == 0)
@@ -31,7 +30,7 @@ namespace SkillFactory.ToDOList.DAL
             return lastId;
         }
 
-        public IEnumerable<Task> GetAll()
+        public List<Task> GetAll()
         {
             return MemoryDao.tasks.Values.ToList();
         }

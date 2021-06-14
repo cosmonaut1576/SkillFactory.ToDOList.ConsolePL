@@ -6,8 +6,10 @@ namespace SkillFactory.ToDOList.DAL.Interface
 {
     public interface ITaskDao
     {
-        public int Add(Task task);
-        public IEnumerable<Task> GetAll();
+        public void Add(Task task);
+        public void Remove(Task task);
+        public List<Task> GetAll();
         public Task GetByID(int id);
+        public int GetLastId();
     }
 }
