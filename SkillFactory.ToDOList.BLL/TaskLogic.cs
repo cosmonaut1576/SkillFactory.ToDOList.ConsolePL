@@ -17,30 +17,25 @@ namespace SkillFactory.ToDOList.BLL
         {
             _taskDao = taskDao;
         }
-        public void Add(Task task)
+
+        public void AddTask(Task task)
         {
-            if(task.Name.Length <= 0)
+            if (task.Name.Length == 0)
             {
                 throw new ArgumentException("Name is empty.");
             }
-            MemoryDao.tasks.Add(_taskDao.GetLastId(), task);
+
+            _taskDao.AddTask(task);
         }
 
         public void Remove(Task task)
         {
-            MemoryDao.tasks.Remove(task.Id, out task);
+            _taskDao.Remove(task);
         }
 
-        public List<Task> GetAll()
+        public IEnumerable<Task> GetAll()
         {
-            var list = new List<Task>();
-            foreach (var task in MemoryDao.tasks)
-            {
-                list.Add(task.Value);
-            }
-
-            return list;
-
+            return _taskDao.GetAll();
         }
 
         public Task GetByName(string name)
@@ -53,6 +48,23 @@ namespace SkillFactory.ToDOList.BLL
         {
             var result = MemoryDao.tasks.FirstOrDefault(o => o.Value.Id == id).Key;
             return MemoryDao.tasks[result];
+        }
+
+        public List<Task> SortByPriority()
+        {
+            var sortedListOfTasks =
+                MemoryDao.tasks.OrderByDescending(o => o.Value.Priority).Select(p => p.Value).ToList();
+            return sortedListOfTasks;
+        }
+
+        public Task ChangeStatus(Task task)
+        {
+            if (task.Status == TaskStatus.taskInProcess)
+            {
+                task.Status = TaskStatus.taskDone;
+            }
+
+            return task;
         }
     }
 }

@@ -6,10 +6,12 @@ namespace SkillFactory.ToDOList.BLL.Interface
 {
     public interface ITaskLogic
     {
-        public void Add(Task task);
+        public void AddTask(Task task);
         public void Remove(Task task);
-        public List<Task> GetAll();
+        public IEnumerable<Task> GetAll();
         public Task GetByName(string name);
         public Task GetByID(int id);
+        public List<Task> SortByPriority();
+        public Task ChangeStatus(Task task);
     }
 }
