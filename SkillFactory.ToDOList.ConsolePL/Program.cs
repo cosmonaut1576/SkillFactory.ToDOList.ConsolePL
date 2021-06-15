@@ -18,7 +18,7 @@ namespace SkillFactory.ToDOList.ConsolePL
             //зависимости - буква D (Dependency Inversion) - модули нижних уровней не должны зависеть от модулей верхних уровней
             var taskLogic = DependencyResolver.taskLogic;
 
-            var id = taskLogic.Add(new Entities.Task
+            var id = taskLogic.AddTask(new Entities.Task
             {
                 Name = "Написать ПО",
                 Priority = 1,
