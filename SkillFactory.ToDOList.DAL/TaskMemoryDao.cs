@@ -9,7 +9,7 @@ namespace SkillFactory.ToDOList.DAL
     public class TaskMemoryDao : ITaskDao
     {
 
-        public void AddTask(Task task)
+        public void Add(Task task)
         {
             int id = GetLastId() + 1;
             task.Id = id;
@@ -18,7 +18,7 @@ namespace SkillFactory.ToDOList.DAL
 
         public void Remove(Task task)
         {
-            MemoryDao.tasks.Remove(task.Id, out task);
+            MemoryDao.tasks.Remove(task.Id);
         }
 
         public int GetLastId()
@@ -48,6 +48,23 @@ namespace SkillFactory.ToDOList.DAL
             }
 
             return task;
+        }
+
+        public Task GetByName(string name)
+        {
+            foreach (Task item in MemoryDao.tasks.Values.ToList())
+            {
+                if (item.Name == name)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public void ChangeStatus(int id)
+        {
+            if (MemoryDao.tasks.TryGetValue(id, out Task task))
+                task.Status = TaskStatus.taskDone;
         }
     }
 }

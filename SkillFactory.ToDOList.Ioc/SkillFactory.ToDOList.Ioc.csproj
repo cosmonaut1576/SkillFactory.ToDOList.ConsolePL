@@ -9,6 +9,7 @@
     <ProjectReference Include="..\SkillFactory.ToDOList.BLL\SkillFactory.ToDOList.BLL.csproj" />
     <ProjectReference Include="..\SkillFactory.ToDOList.DAL.Interface\SkillFactory.ToDOList.DAL.Interface.csproj" />
     <ProjectReference Include="..\SkillFactory.ToDOList.DAL\SkillFactory.ToDOList.DAL.csproj" />
+    <ProjectReference Include="..\TextFilesDao\SkillFactory.ToDOList.TextFilesDAL.csproj" />
   </ItemGroup>
 
 </Project>

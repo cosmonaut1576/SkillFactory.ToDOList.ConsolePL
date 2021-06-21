@@ -3,23 +3,57 @@ using SkillFactory.ToDOList.Entities;
 using System;
 using System.Collections.Generic;
 
-namespace TextFilesDao
+namespace SkillFactory.ToDOList.TextFilesDAL
 {
     public class TaskTextFilesDao : ITaskDao
     {
-        public int Add(Task task)
+        readonly TextFilesDao textFile = new TextFilesDao();
+        
+        public void Add(Task task)
         {
-            throw new NotImplementedException();
+            int id = GetLastId() + 1;
+            task.Id = id;
+            textFile.Add(task);
         }
 
         public IEnumerable<Task> GetAll()
         {
-            throw new NotImplementedException();
+            return textFile.GetTasks();
         }
 
         public Task GetByID(int id)
         {
-            throw new NotImplementedException();
+            if(!textFile.TryGetValue(id, out var task))
+                return null;
+
+            return task;
+        }
+
+        public Task GetByName(string name)
+        {
+            if (!textFile.TryGetValue(name, out var task))
+                return null;
+
+            return task;
+        }
+
+        public int GetLastId()
+        {
+            return textFile.Max();
+        }
+
+        public void Remove(Task task)
+        {
+            textFile.Remove(task);
+        }
+
+        public void ChangeStatus(int id)
+        {
+            //if (task.Status == TaskStatus.taskInProcess)
+            //{
+            //    task.Status = TaskStatus.taskDone;
+            //}
+            textFile.ChangeStatus(id);
         }
     }
 }

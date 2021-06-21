@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.Entit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{74C7060F-BEF7-4DB6-BB40-47DB1753BC23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactory.ToDOList.TextFilesDAL", "TextFilesDao\SkillFactory.ToDOList.TextFilesDAL.csproj", "{08F89594-1E8F-4496-B858-0399A492728C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.TextFilesDAL", "TextFilesDao\SkillFactory.ToDOList.TextFilesDAL.csproj", "{08F89594-1E8F-4496-B858-0399A492728C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactory.ToDOList.Ioc", "SkillFactory.ToDOList.Ioc\SkillFactory.ToDOList.Ioc.csproj", "{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.Ioc", "SkillFactory.ToDOList.Ioc\SkillFactory.ToDOList.Ioc.csproj", "{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
