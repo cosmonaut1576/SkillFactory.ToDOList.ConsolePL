@@ -5,25 +5,25 @@ using System.Collections.Generic;
 
 namespace SkillFactory.ToDOList.TextFilesDAL
 {
-    public class TaskTextFilesDao : ITaskDao
+    public class TaskXMLFilesDao : ITaskDao
     {
-        readonly TextFilesDao textFile = new TextFilesDao();
+        readonly XMLFilesDao _xmlFile = new XMLFilesDao();
         
         public void Add(Task task)
         {
             int id = GetLastId() + 1;
             task.Id = id;
-            textFile.Add(task);
+            _xmlFile.Add(task);
         }
 
         public IEnumerable<Task> GetAll()
         {
-            return textFile.GetTasks();
+            return _xmlFile.GetTasks();
         }
 
         public Task GetByID(int id)
         {
-            if(!textFile.TryGetValue(id, out var task))
+            if(!_xmlFile.TryGetValue(id, out var task))
                 return null;
 
             return task;
@@ -31,7 +31,7 @@ namespace SkillFactory.ToDOList.TextFilesDAL
 
         public Task GetByName(string name)
         {
-            if (!textFile.TryGetValue(name, out var task))
+            if (!_xmlFile.TryGetValue(name, out var task))
                 return null;
 
             return task;
@@ -39,12 +39,12 @@ namespace SkillFactory.ToDOList.TextFilesDAL
 
         public int GetLastId()
         {
-            return textFile.Max();
+            return _xmlFile.Max();
         }
 
         public void Remove(Task task)
         {
-            textFile.Remove(task);
+            _xmlFile.Remove(task);
         }
 
         public void ChangeStatus(int id)
@@ -53,7 +53,7 @@ namespace SkillFactory.ToDOList.TextFilesDAL
             //{
             //    task.Status = TaskStatus.taskDone;
             //}
-            textFile.ChangeStatus(id);
+            _xmlFile.ChangeStatus(id);
         }
     }
 }

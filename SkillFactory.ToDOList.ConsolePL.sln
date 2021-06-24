@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.TextF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.Ioc", "SkillFactory.ToDOList.Ioc\SkillFactory.ToDOList.Ioc.csproj", "{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFilesPartDao", "TextFilesPartDao\TextFilesPartDao.csproj", "{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{D646D629-6BB6-4ECC-A7DA-34D88A1DBBDC} = {74C7060F-BEF7-4DB6-BB40-47DB1753BC23}
 		{08F89594-1E8F-4496-B858-0399A492728C} = {B8FD49F2-E9A1-4EF9-A7B9-38DB1AF3DB3B}
 		{F42A2416-D2C2-4152-87B5-0A0CD2111C4B} = {74C7060F-BEF7-4DB6-BB40-47DB1753BC23}
+		{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D} = {B8FD49F2-E9A1-4EF9-A7B9-38DB1AF3DB3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5E5E669-970A-42FF-8D92-4B8AA787E020}
