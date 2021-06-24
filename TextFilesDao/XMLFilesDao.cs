@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace SkillFactory.ToDOList.TextFilesDAL
 {
-    public class TextFilesDao
+    public class XMLFilesDao
     {
-        public TextFilesDao()
+        public XMLFilesDao()
         {
             GetTasks();
         }
