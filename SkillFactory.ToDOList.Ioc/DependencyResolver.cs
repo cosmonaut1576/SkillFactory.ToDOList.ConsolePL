@@ -22,7 +22,7 @@ namespace SkillFactory.ToDOList.Ioc
                 if (dalType == 1)
                     TaskDao = new TaskMemoryDao();
                 else if (dalType == 2)
-                    TaskDao = new TaskTextFilesDao();
+                    TaskDao = new TaskXMLFilesDao();
 
                 TaskLogic = new TaskLogic(TaskDao);
 
