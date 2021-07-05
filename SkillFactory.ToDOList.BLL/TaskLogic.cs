@@ -77,12 +77,12 @@ namespace SkillFactory.ToDOList.BLL
 
         public void ShowAll(IEnumerable<Task> tasks)
         {
-            Console.WriteLine("-----------------------------------------------------------------------------------------");
-            Console.WriteLine("  Id   |             Name             |Priority|  Status  |            Text              ");
-            Console.WriteLine("-----------------------------------------------------------------------------------------");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("  Id   |             Name             |Priority|  Status  | Expire Date |            Text                 ");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------");
             foreach (Task item in tasks.ToList())
             {
-                Console.WriteLine("{0}|{1}|{2}|{3}|{4}", item.Id.ToString().PadLeft(4, ' ').PadRight(7, ' ').Substring(0, 7), item.Name.PadRight(30,' ').Substring(0, 30), item.Priority.ToString().PadLeft(4,' ').PadRight(8,' ').Substring(0, 8), item.Status.PadRight(10, ' '), item.Text.PadRight(100, ' ').Substring(0, 100));
+                Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", item.Id.ToString().PadLeft(4, ' ').PadRight(7, ' ').Substring(0, 7), item.Name.PadRight(30,' ').Substring(0, 30), item.Priority.ToString().PadLeft(4,' ').PadRight(8,' ').Substring(0, 8), item.Status.PadRight(10, ' '), item.Text.PadRight(100, ' ').Substring(0, 100), item.ExpireDate.ToString().PadLeft(4,' ').PadRight(10,' ').Substring(0, 10));
             }
         }
     }
