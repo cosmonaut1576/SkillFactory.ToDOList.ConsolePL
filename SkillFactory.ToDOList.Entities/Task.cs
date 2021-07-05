@@ -9,5 +9,8 @@ namespace SkillFactory.ToDOList.Entities
         public int Priority { get; set; }
         public string Text { get; set; }
         public string Status { get; set; }
+        
+        public DateTime ExpireDate { get; set; }
+        
     }
 }

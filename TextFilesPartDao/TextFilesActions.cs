@@ -82,10 +82,5 @@ namespace TExtFiesDao
             }
             return taskByName;
         }
-
-        public void ChangeStatus(int id)
-        {
-            /*пока не реализовывал*/
-        }
     }
 }

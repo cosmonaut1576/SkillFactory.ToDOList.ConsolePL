@@ -64,6 +64,13 @@ namespace SkillFactory.ToDOList.BLL
             //MemoryDao.tasks.OrderByDescending(o => o.Value.Priority).Select(p => p.Value).ToList();
             return sortedListOfTasks;
         }
+        
+        public List<Task> SortByExpireDateThenByPriority() //сортировка сначала по дате, затем по приоритету
+        {
+            var sortedListOfTasks =
+                GetAll().OrderBy(o => o.ExpireDate.Day).ThenBy(z=> z.Priority).Select(p => p).ToList();
+            return sortedListOfTasks;
+        }
 
         public void ChangeStatus(Task task)
         {
