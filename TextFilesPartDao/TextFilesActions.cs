@@ -16,7 +16,7 @@ namespace TExtFiesDao
             {
                 using (StreamWriter sw = File.CreateText(filePath))
                 {
-                    sw.Write(task.Id + task.Priority + task.Name + task.Text + task.Status);
+                    sw.Write(task.Id + task.Priority + task.Name + task.Text + task.Status + task.ExpireDate);
                 }
             }
         }
