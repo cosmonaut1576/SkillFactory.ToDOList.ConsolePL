@@ -4,28 +4,49 @@ using SkillFactory.ToDOList.DAL;
 using SkillFactory.ToDOList.TextFilesDAL;
 using SkillFactory.ToDOList.DAL.Interface;
 using System;
+using SkillFactory.ToDOList.Entities.Configuration;
+using SkillFactory.ToDOList.Common;
 
 namespace SkillFactory.ToDOList.Ioc
 {
-    public static class DependencyResolver
+    public class DependencyResolver
     {
-        private static ITaskDao TaskDao { get; }
-        public static ITaskLogic TaskLogic { get; }
+        private ITaskDao _taskDao { get; }
+        private PublicCache _publicCache { get; }
+        public ITaskLogic TaskLogic { get; }
 
-        static DependencyResolver()
+        public DependencyResolver(ConfigurationDAL configurationDAL)
         {
-            IniSettings INI = new IniSettings(Environment.ExpandEnvironmentVariables(@"%userprofile%\Documents\config.ini"));
-            INI.Write("Settings", "DALType", "2");
-            int dalType = Convert.ToInt32(INI.ReadINI("Settings", "DALType"));
-            if (dalType != 0)
+            _taskDao = GetTaskDaoByType(configurationDAL.Type);
+            _publicCache = new PublicCache();
+            TaskLogic = new TaskLogic(_taskDao, _publicCache);
+            //IniSettings INI = new IniSettings(Environment.ExpandEnvironmentVariables(@"%userprofile%\Documents\config.ini"));
+            //INI.Write("Settings", "DALType", "2");
+            //int dalType = Convert.ToInt32(INI.ReadINI("Settings", "DALType"));
+            //if (dalType != 0)
+            //{
+            //    if (dalType == 1)
+            //        TaskDao = new TaskMemoryDao();
+            //    else if (dalType == 2)
+            //        TaskDao = new TaskXMLFilesDao();
+
+            //    TaskLogic = new TaskLogic(TaskDao);
+            //}
+
+
+        }
+
+        private ITaskDao GetTaskDaoByType(TypeOfDao typeOfDao)
+        {
+            switch (typeOfDao)
             {
-                if (dalType == 1)
-                    TaskDao = new TaskMemoryDao();
-                else if (dalType == 2)
-                    TaskDao = new TaskXMLFilesDao();
-
-                TaskLogic = new TaskLogic(TaskDao);
-
+                case TypeOfDao.File:
+                    return new TaskXMLFilesDao();
+                case TypeOfDao.Memory:
+                    return new TaskMemoryDao();
+                default:
+                    throw new ArgumentException
+                        ("Can't resolve type for TaskDao!");
             }
         }
     

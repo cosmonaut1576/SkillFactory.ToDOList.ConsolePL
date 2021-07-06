@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SkillFactory.ToDOList.DAL;
+using SkillFactory.ToDOList.Common;
 
 namespace SkillFactory.ToDOList.BLL
 {
@@ -13,9 +14,13 @@ namespace SkillFactory.ToDOList.BLL
         //из логики вызываем DAO
         private readonly ITaskDao _taskDao;
 
-        public TaskLogic(ITaskDao taskDao)
+        private readonly PublicCache _publicCache;
+        private const string CACHE_KEY_TASK = "CACHE_KEY_TASK";
+
+        public TaskLogic(ITaskDao taskDao, PublicCache publicCache)
         {
             _taskDao = taskDao;
+            _publicCache = publicCache;
         }
 
         public void Add(Task task)
@@ -25,6 +30,7 @@ namespace SkillFactory.ToDOList.BLL
                 throw new ArgumentException("Name is empty.");
             }
 
+            _publicCache.Reset(CACHE_KEY_TASK);
             _taskDao.Add(task);
         }
 
@@ -35,7 +41,8 @@ namespace SkillFactory.ToDOList.BLL
 
         public IEnumerable<Task> GetAll()
         {
-            return _taskDao.GetAll();
+            //return _taskDao.GetAll();
+            return _publicCache.GetOrCreate(CACHE_KEY_TASK, () => _taskDao.GetAll());
         }
 
         public Task GetByName(string name)
@@ -53,7 +60,9 @@ namespace SkillFactory.ToDOList.BLL
         {
             //var result = MemoryDao.tasks.FirstOrDefault(o => o.Value.Id == id).Key;
             //return MemoryDao.tasks[result];
-            return _taskDao.GetByID(id);
+
+            //return _taskDao.GetByID(id);
+            return GetAll().FirstOrDefault(item => item.Id == id);
         }
 
         public List<Task> SortByPriority()
@@ -63,11 +72,11 @@ namespace SkillFactory.ToDOList.BLL
             //MemoryDao.tasks.OrderByDescending(o => o.Value.Priority).Select(p => p.Value).ToList();
             return sortedListOfTasks;
         }
-        
+
         public List<Task> SortByExpireDateThenByPriority() //сортировка сначала по дате, затем по приоритету
         {
             var sortedListOfTasks =
-                GetAll().OrderBy(o => o.ExpireDate.Day).ThenBy(z=> z.Priority).Select(p => p).ToList();
+                GetAll().OrderBy(o => o.ExpireDate).ThenBy(z => z.Priority).Select(p => p).ToList();
             return sortedListOfTasks;
         }
 
@@ -85,11 +94,11 @@ namespace SkillFactory.ToDOList.BLL
         public void ShowAll(IEnumerable<Task> tasks)
         {
             Console.WriteLine("----------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("  Id   |             Name             |Priority|  Status  | Expire Date |            Text                 ");
+            Console.WriteLine("  Id   |             Name             | Expire Date |Priority|  Status  |            Text                 ");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------");
             foreach (Task item in tasks.ToList())
             {
-                Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", item.Id.ToString().PadLeft(4, ' ').PadRight(7, ' ').Substring(0, 7), item.Name.PadRight(30,' ').Substring(0, 30), item.Priority.ToString().PadLeft(4,' ').PadRight(8,' ').Substring(0, 8), item.Status.PadRight(10, ' '), item.Text.PadRight(100, ' ').Substring(0, 100), item.ExpireDate.ToString().PadLeft(4,' ').PadRight(10,' ').Substring(0, 10));
+                Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", item.Id.ToString().PadLeft(4, ' ').PadRight(7, ' ').Substring(0, 7), item.Name.PadRight(30, ' ').Substring(0, 30), item.ExpireDate.ToShortDateString().PadLeft(11, ' ').PadRight(13, ' ').Substring(0, 13), item.Priority.ToString().PadLeft(4, ' ').PadRight(8, ' ').Substring(0, 8), item.Status.PadRight(10, ' '), item.Text.PadRight(100, ' ').Substring(0, 100));
             }
         }
     }

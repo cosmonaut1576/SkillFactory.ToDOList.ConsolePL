@@ -46,6 +46,8 @@ namespace SkillFactory.ToDOList.TextFilesDAL
                             task.Text = childnode.InnerText;
                         if (childnode.Name == "Status")
                             task.Status = childnode.InnerText;
+                        if (childnode.Name == "ExpireDate")
+                            task.ExpireDate = DateTime.Parse(childnode.InnerText);
                     }
                     if(task != null)
                         _cache.Add(task.Id, task);
@@ -105,16 +107,21 @@ namespace SkillFactory.ToDOList.TextFilesDAL
             XmlText statusText = xDoc.CreateTextNode(task.Status);
             statusElem.AppendChild(statusText);
 
+            XmlElement expiredDateElem = xDoc.CreateElement("ExpireDate");
+            XmlText expiredDateText = xDoc.CreateTextNode(task.ExpireDate.ToShortDateString());
+            expiredDateElem.AppendChild(expiredDateText);
+
             taskElem.AppendChild(idElem);
             taskElem.AppendChild(nameElem);
             taskElem.AppendChild(priorityElem);
             taskElem.AppendChild(textElem);
             taskElem.AppendChild(statusElem);
+            taskElem.AppendChild(expiredDateElem);
 
-           /* if(xDoc.DocumentElement == null)
-                xDoc.AppendChild(taskElem);
-            else
-                xDoc.DocumentElement.AppendChild(taskElem);*/
+            /* if(xDoc.DocumentElement == null)
+                 xDoc.AppendChild(taskElem);
+             else
+                 xDoc.DocumentElement.AppendChild(taskElem);*/
             xRoot.AppendChild(taskElem);
 
             xDoc.Save(_path);
@@ -246,6 +253,8 @@ namespace SkillFactory.ToDOList.TextFilesDAL
                             _task.Text = childnode.InnerText;
                         if (childnode.Name == "Status")
                             _task.Status = childnode.InnerText;
+                        if (childnode.Name == "ExpireDate")
+                            _task.ExpireDate = DateTime.Parse(childnode.InnerText);
                     }
                 }
                 if (_task != null)
@@ -298,6 +307,8 @@ namespace SkillFactory.ToDOList.TextFilesDAL
                                 _task.Text = childnode.InnerText;
                             if (childnode.Name == "Status")
                                 _task.Status = childnode.InnerText;
+                            if (childnode.Name == "Status")
+                                _task.ExpireDate = DateTime.Parse(childnode.InnerText);
                         }
                     }
                     if (_task != null)

@@ -14,5 +14,6 @@ namespace SkillFactory.ToDOList.BLL.Interface
         public List<Task> SortByPriority();
         public void ChangeStatus(Task task);
         public void ShowAll(IEnumerable<Task> tasks);
+        public List<Task> SortByExpireDateThenByPriority();
     }
 }

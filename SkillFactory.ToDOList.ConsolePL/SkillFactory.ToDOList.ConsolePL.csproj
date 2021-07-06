@@ -6,9 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SkillFactory.ToDOList.BLL.Interface\SkillFactory.ToDOList.BLL.Interface.csproj" />
     <ProjectReference Include="..\SkillFactory.ToDOList.DAL.Interface\SkillFactory.ToDOList.DAL.Interface.csproj" />
+    <ProjectReference Include="..\SkillFactory.ToDOList.Entities\SkillFactory.ToDOList.Entities.csproj" />
     <ProjectReference Include="..\SkillFactory.ToDOList.Ioc\SkillFactory.ToDOList.Ioc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
