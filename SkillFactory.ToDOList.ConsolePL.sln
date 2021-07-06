@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.TextF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.Ioc", "SkillFactory.ToDOList.Ioc\SkillFactory.ToDOList.Ioc.csproj", "{F42A2416-D2C2-4152-87B5-0A0CD2111C4B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFilesPartDao", "TextFilesPartDao\TextFilesPartDao.csproj", "{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillFactory.ToDOList.TextFilesLayer", "SkillFactory.ToDOList.TextFilesLayer\SkillFactory.ToDOList.TextFilesLayer.csproj", "{DE9D6FEA-7B34-474F-B2CF-04A475D10A2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactory.ToDOList.Common", "SkillFactory.ToDOList.Common\SkillFactory.ToDOList.Common.csproj", "{F724C4AA-F602-4033-8DDA-9EB0777D86B4}"
 EndProject

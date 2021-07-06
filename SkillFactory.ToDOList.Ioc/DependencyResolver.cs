@@ -6,6 +6,7 @@ using SkillFactory.ToDOList.DAL.Interface;
 using System;
 using SkillFactory.ToDOList.Entities.Configuration;
 using SkillFactory.ToDOList.Common;
+using SkillFactory.ToDOList.TextFilesLayer;
 
 namespace SkillFactory.ToDOList.Ioc
 {
@@ -13,13 +14,17 @@ namespace SkillFactory.ToDOList.Ioc
     {
         private ITaskDao _taskDao { get; }
         private PublicCache _publicCache { get; }
-        public ITaskLogic TaskLogic { get; }
+        private ITextFiles _textFiles { get; }
+       public ITaskLogic TaskLogic { get; }
+        
 
         public DependencyResolver(ConfigurationDAL configurationDAL)
         {
             _taskDao = GetTaskDaoByType(configurationDAL.Type);
             _publicCache = new PublicCache();
-            TaskLogic = new TaskLogic(_taskDao, _publicCache);
+            _textFiles = new TaskTextFileDao();
+
+            TaskLogic = new TaskLogic(_taskDao, _publicCache, _textFiles);
             //IniSettings INI = new IniSettings(Environment.ExpandEnvironmentVariables(@"%userprofile%\Documents\config.ini"));
             //INI.Write("Settings", "DALType", "2");
             //int dalType = Convert.ToInt32(INI.ReadINI("Settings", "DALType"));

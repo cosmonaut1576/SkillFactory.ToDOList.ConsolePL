@@ -13,14 +13,18 @@ namespace SkillFactory.ToDOList.BLL
     {
         //из логики вызываем DAO
         private readonly ITaskDao _taskDao;
+        private ITextFiles _textFiles;
+        
 
         private readonly PublicCache _publicCache;
         private const string CACHE_KEY_TASK = "CACHE_KEY_TASK";
 
-        public TaskLogic(ITaskDao taskDao, PublicCache publicCache)
+        public TaskLogic(ITaskDao taskDao, PublicCache publicCache, ITextFiles textFiles)
         {
             _taskDao = taskDao;
             _publicCache = publicCache;
+            _textFiles = textFiles;
+
         }
 
         public void Add(Task task)
@@ -32,11 +36,13 @@ namespace SkillFactory.ToDOList.BLL
 
             _publicCache.Reset(CACHE_KEY_TASK);
             _taskDao.Add(task);
+            _textFiles.Add(task);
         }
 
         public void Remove(Task task)
         {
             _taskDao.Remove(task);
+            _textFiles.Remove(task);
         }
 
         public IEnumerable<Task> GetAll()

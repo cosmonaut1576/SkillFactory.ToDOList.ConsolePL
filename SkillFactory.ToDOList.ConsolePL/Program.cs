@@ -28,14 +28,14 @@ namespace SkillFactory.ToDOList.ConsolePL
             //зависимости - буква D (Dependency Inversion) - модули нижних уровней не должны зависеть от модулей верхних уровней
             var random = new Random();
             var taskLogic = dr.TaskLogic;
-            //taskLogic.Add(new Entities.Task
-            //{
-            //    Name = "Отпраздновать заключение первого контракта",
-            //    Priority = 0,
-            //    Text = "Вы лучшие и пусть весь мир подождёт",
-            //    Status = "В процессе",
-            //    ExpireDate = System.DateTime.Now.AddDays(random.Next(1, 7)).Date
-            //});
+            taskLogic.Add(new Entities.Task
+            {
+                Name = "Отпраздновать заключение первого контракта",
+                Priority = 0,
+                Text = "Вы лучшие и пусть весь мир подождёт",
+                Status = "В процессе",
+                ExpireDate = System.DateTime.Now.AddDays(random.Next(1, 7)).Date
+            });
 
             //string searchingName = Console.ReadLine();
             //var task = taskLogic.GetByName(searchingName);

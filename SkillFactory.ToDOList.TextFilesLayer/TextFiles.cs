@@ -5,11 +5,11 @@ using System.Linq;
 using SkillFactory.ToDOList.DAL.Interface;
 using SkillFactory.ToDOList.Entities;
 
-namespace TExtFiesDao
+namespace  SkillFactory.ToDOList.TextFilesLayer
 {
     class TextFiles
     {
-        private readonly string filePath = " ";
+        private readonly string filePath = "C:/Users/admin/Desktop/ffmpeg/task.txt ";
         public void Add(Task task)
         {
             if (!File.Exists(filePath))
